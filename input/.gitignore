@@ -1,0 +1,5 @@
+# Ignore Google Maps API key.
+key.txt
+
+# Ignore all input data except the template.
+waypoints.*

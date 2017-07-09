@@ -1,0 +1,3 @@
+# Keep this directory in git, but don't keep the files.
+*
+!.gitignore

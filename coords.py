@@ -27,23 +27,31 @@ class Coords:
         i = 0
 
         for point in points:
-            start = gmaps.geocode(point[fields.index("Start")])
-            end = gmaps.geocode(point[fields.index("End")])
+            dest = gmaps.geocode(point[fields.index("Address")])
 
-            points[i][fields.index("Lat_s")] = str(start[0]["geometry"]["location"]["lat"])
-            points[i][fields.index("Lon_s")] = str(start[0]["geometry"]["location"]["lng"])
-            points[i][fields.index("Lat_e")] = str(end[0]["geometry"]["location"]["lat"])
-            points[i][fields.index("Lon_e")] = str(end[0]["geometry"]["location"]["lng"])
+            points[i][fields.index("Lon")] = str(dest[0]["geometry"]["location"]["lng"])
+            points[i][fields.index("Lat")] = str(dest[0]["geometry"]["location"]["lat"])
 
             i += 1
 
         self.waypoints.update_waypoints(points)
 
 
-    def generate_csv_with_coords(self):
-        with open("output/waypoints.csv", "w") as f:
+    def generate_csv_with_coords(self, name = "waypoints"):
+        with open("output/" + name + ".csv", "w") as f:
             writer = csv.writer(f)
-            writer.writerow(self.waypoints.get_fields())
+            writer.writerow(self.waypoints.get_garmin_poi_fields())
+
+            fields = self.waypoints.get_fields()
+            i = 0
             
             for row in self.waypoints.get_waypoints():
-                writer.writerow(row)
+                out = [
+                    row[fields.index("Lon")],
+                    row[fields.index("Lat")],
+                    row[fields.index("Name")],
+                    row[fields.index("Comment")]
+                ]
+                writer.writerow(out)
+
+                i += 1

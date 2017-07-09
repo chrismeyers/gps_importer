@@ -1,6 +1,7 @@
 import csv
 
 class Waypoints:
+    GARMIN_POI_FIELDS = ["Lon", "Lat", "Name", "Comment"]
     fields = []
     waypoints = []
 
@@ -12,8 +13,12 @@ class Waypoints:
             for row in data:
                 if is_header:
                     self.fields = row
+                    self.fields.append("Lat")
+                    self.fields.append("Lon")
                     is_header = False
                 else:
+                    row.append("") # Placeholder for Lat
+                    row.append("") # Placeholder for Lon
                     self.waypoints.append(row)
 
 
@@ -27,3 +32,7 @@ class Waypoints:
 
     def update_waypoints(self, updated):
         self.waypoints = updated
+
+
+    def get_garmin_poi_fields(self):
+        return self.GARMIN_POI_FIELDS

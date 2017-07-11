@@ -15,10 +15,12 @@ class Waypoints:
                     self.fields = row
                     self.fields.append("Lat")
                     self.fields.append("Lon")
+                    self.fields.append("Comment")
                     is_header = False
                 else:
                     row.append("") # Placeholder for Lat
                     row.append("") # Placeholder for Lon
+                    row.append("") # Placeholder for Comment
                     self.waypoints.append(row)
 
 

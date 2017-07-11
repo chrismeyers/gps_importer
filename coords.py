@@ -27,10 +27,12 @@ class Coords:
         i = 0
 
         for point in points:
-            dest = gmaps.geocode(point[fields.index("Address")])
+            dest = gmaps.geocode(point[fields.index("Search")])
 
             points[i][fields.index("Lon")] = str(dest[0]["geometry"]["location"]["lng"])
             points[i][fields.index("Lat")] = str(dest[0]["geometry"]["location"]["lat"])
+
+            points[i][fields.index("Comment")] = dest[0]["formatted_address"]
 
             i += 1
 

@@ -32,7 +32,10 @@ class Coords:
             points[i][fields.index("Lon")] = str(dest[0]["geometry"]["location"]["lng"])
             points[i][fields.index("Lat")] = str(dest[0]["geometry"]["location"]["lat"])
 
-            points[i][fields.index("Comment")] = dest[0]["formatted_address"]
+            user_comment = ""
+            if points[i][fields.index("Comment")] != "":
+                user_comment = " [" + points[i][fields.index("Comment")] + "]"
+            points[i][fields.index("Comment")] = dest[0]["formatted_address"] + user_comment
 
             i += 1
 

@@ -37,6 +37,8 @@ class Coords:
                 user_comment = " [" + points[i][fields.index("Comment")] + "]"
             points[i][fields.index("Comment")] = dest[0]["formatted_address"] + user_comment
 
+            print(str(i + 1).rjust(4) + ". Fetched " + point[fields.index("Search")] + " @ " + points[i][fields.index("Lat")] + ", " + points[i][fields.index("Lon")])
+
             i += 1
 
         self.waypoints.update_waypoints(points)

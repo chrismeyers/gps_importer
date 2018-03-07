@@ -12,8 +12,9 @@ optional arguments:
 
 ## Dependencies
 * Python 3
-* [Google Maps Python Client Library](https://github.com/googlemaps/google-maps-services-python)
+* pipenv
 * [Google Maps Geocoding API key](https://developers.google.com/maps/documentation/geocoding/start)
+  - Additional information about the Google Maps Python Client Library can be found [here](https://github.com/googlemaps/google-maps-services-python).
 * [Garmin POI Loader](https://www.garmin.com/us/maps/poiloader)
   - Additional information can be found [here](http://www8.garmin.com/products/poiloader/creating_custom_poi_files.jsp).
 

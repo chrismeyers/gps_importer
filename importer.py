@@ -19,8 +19,10 @@ import argparse
 from coords import Coords
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Imports a .csv file of addresses and generates a .csv file that can be imported into a Garmin GPS device.')
-    parser.add_argument('-n', '--name', help='used to label the output .csv file.', default='waypoints')
+    parser = argparse.ArgumentParser(
+        description='Imports a .csv file of addresses and generates a .csv file that can be imported into a Garmin GPS device.')
+    parser.add_argument(
+        '-n', '--name', help='used to label the output .csv file.', default='waypoints')
     args = parser.parse_args()
 
     with open("input/key.txt", "r") as f:

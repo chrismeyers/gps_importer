@@ -2,12 +2,12 @@ import googlemaps
 import csv
 from waypoints import Waypoints
 
+
 class Coords:
     def __init__(self, api_key):
         self._api_key = api_key
         self._waypoints = Waypoints()
         self._waypoints.parse_waypoints()
-
 
     def fetch_coords(self):
         gmaps = googlemaps.Client(key=self._api_key)
@@ -32,7 +32,6 @@ class Coords:
             i += 1
 
         self._waypoints.waypoints = points
-
 
     def generate_csv_with_coords(self, name='waypoints'):
         with open(f'output/{name}.csv', 'w') as f:

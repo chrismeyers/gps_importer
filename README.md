@@ -11,7 +11,7 @@ optional arguments:
 ```
 
 ## Dependencies
-* Python 3
+* Python 3 >= 3.6
 * pipenv
 * [Google Maps Geocoding API key](https://developers.google.com/maps/documentation/geocoding/start)
   - Additional information about the Google Maps Python Client Library can be found [here](https://github.com/googlemaps/google-maps-services-python).

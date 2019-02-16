@@ -1,14 +1,9 @@
 [[source]]
-
-url = "https://pypi.python.org/simple"
-verify_ssl = true
 name = "pypi"
-
-
-[packages]
-
-googlemaps = "*"
-
+url = "https://pypi.org/simple"
+verify_ssl = true
 
 [dev-packages]
 
+[packages]
+googlemaps = "*"
